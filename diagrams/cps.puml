@@ -1,0 +1,26 @@
+@startuml "cps"
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/devicons2/java.puml
+!include https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/devicons2/postgresql.puml
+!include https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/devicons2/redis.puml
+!include https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/font-awesome-5/user.puml
+
+skinparam wrapWidth 200
+skinparam maxMessageSize 100
+
+Person(customer, "Customer", "", $sprite="user")
+
+Enterprise_Boundary(acme, "CPS Services") {
+'Components.
+    !include plan_components.puml
+    !include pick_components.puml
+}
+
+'Relations.
+!include plan_relations.puml
+!include pick_relations.puml
+
+Rel(plan_backend, pick_backend, "Sends planned orders for picking")
+
+@enduml
