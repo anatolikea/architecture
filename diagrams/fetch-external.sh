@@ -6,6 +6,6 @@ do
   do
     url="https://raw.githubusercontent.com/anatolikea/${service}-backend/master/resources/diagrams/${file}"
     echo "$url"
-    curl -s --fail -H "Authorization: Bearer $GITHUB_TOKEN" "$url" --output "./diagrams/$file" || echo "$file not found"
+    curl -s --fail "$url" --output "./diagrams/$file" || echo "$file not found"
   done
 done
