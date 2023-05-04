@@ -1,11 +1,11 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: cps-docs
+  name: architecture
   annotations:
     github.com/project-slug: anatolikea/architecture
     backstage.io/techdocs-ref: url:https://github.com/anatolikea/architecture
 spec:
   type: documentation
-  owner: technology-architecture
+  owner: hackathon
   lifecycle: emerging
