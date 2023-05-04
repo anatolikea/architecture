@@ -1,7 +1,7 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: architecture
+  name: hackathon-demo
   annotations:
     github.com/project-slug: anatolikea/architecture
     backstage.io/techdocs-ref: url:https://github.com/anatolikea/architecture
