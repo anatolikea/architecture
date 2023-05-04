@@ -5,11 +5,15 @@
 !include https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/devicons2/postgresql.puml
 !include https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/devicons2/redis.puml
 !include https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/font-awesome-5/user.puml
+!include https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/font-awesome-5/users.puml
+!include https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/devicons/react.puml
 
 skinparam wrapWidth 200
 skinparam maxMessageSize 100
 
-Person(customer, "Customer", "", $sprite="user")
+Person(picker, "Picker", "", $sprite="user")
+System(isom, "ISOM", "", "", $sprite="users")
+Container(pick_frontend, "Pick frontend", "React", "Serves picker", $sprite="react")
 
 Enterprise_Boundary(acme, "CPS Services") {
 'Components.
@@ -21,6 +25,10 @@ Enterprise_Boundary(acme, "CPS Services") {
 !include plan_relations.puml
 !include pick_relations.puml
 
+Rel(isom, plan_backend, "Sends orders for planning")
 Rel(plan_backend, pick_backend, "Sends planned orders for picking")
+Rel(pick_frontend, pick_backend, "Fetches pick tasks")
+Rel(picker, pick_frontend, "Updates pick order status")
+Rel(picker, pick_frontend, "Updates picked quantity")
 
 @enduml
